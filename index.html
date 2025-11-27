@@ -1,42 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Free Python Code Formatter & Indentation Tool Online</title>
-    <meta name="description" content="Instantly format and auto-indent Python code with the Python Formatter & Indentation Tool to improve readability, fix spacing, and clean your scripts">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Python Indentation Fixer</title>
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Pyodide -->
-    <script defer src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
-
-    <!-- DOMPurify -->
-    <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.2/dist/purify.min.js"></script>
-
-    <!-- Highlight.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
-
-    <!-- App -->
-    <script defer src="main.js"></script>
-
 </head>
 <body>
-    <h1>Python Formatter & Indentation Tool</h1>
-<div id="io">
-<section id="input-section">
-    <h3>Input Code:</h3>
-    <textarea id="input" placeholder="Paste Python code..."></textarea>
-    <button id="formatBtn" disabled>Format Code</button>
-</section>
-<section id="output-section">
-    <h3>
-        Output:
-    </h3>
-    <button id="copyBtn">Copy</button>
-    <pre><code id="output" class="language-python"></code></pre>
-</section>
-</div>
+    <div class="container">
+        <header>
+            <h1>Python Indentation Fixer</h1>
+            <p class="subtitle">Automatically detect and fix Python indentation based on syntax</p>
+        </header>
+
+        <div class="settings">
+            <div class="setting-group">
+                <label for="indentSize">Indent Size:</label>
+                <input type="number" id="indentSize" value="4" min="1" max="8">
+                <span>spaces</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Input Code</h2>
+                    <button class="btn btn-primary" onclick="fixIndentation()">Fix Indentation</button>
+                </div>
+                <div class="code-area">
+                    <textarea id="inputCode" placeholder="Paste your Python code here..."></textarea>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">Fixed Code</h2>
+                    <button class="btn btn-secondary" onclick="copyToClipboard()">Copy Code</button>
+                </div>
+                <div class="code-area">
+                    <pre id="outputCode">Fixed code will appear here...</pre>
+                </div>
+                <div id="statusMessage" class="status info hidden"></div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
